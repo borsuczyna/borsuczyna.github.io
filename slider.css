@@ -1,0 +1,85 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:300);
+
+body {
+    background: #131313 !important;
+    color: white !important;
+    height: 100%;
+    width: 100%;
+    font-family: roboto;
+    font-weight: 300;
+}
+
+.imageA {
+    margin-inline: auto;
+    width: 70vw;
+    aspect-ratio: 16/9;
+    border-radius: 3px;
+    box-shadow: 0 0 1px #999, -2px 2px 3px rgba(0,0,0,.2);
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+    background-size: calc(100% + 4px);
+    background-position: -2px -2px;
+}
+
+.imageB {
+    height: calc(39.375vw + 4px);
+    resize: horizontal;
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 0;
+    max-width: 70vw;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    background-size: cover;
+    background-position: -2px -2px;
+}
+
+@media (max-width: 600px) {
+    .imageA {
+        width: 90vw;
+    }
+
+    .imageB {
+        height: calc(50.5625vw + 4px);
+        max-width: 90vw;
+    }
+}
+
+.imageB:before {
+    content: '↔';
+    background: rgba(0,0,0,.7);
+    font-size: 4px;
+    color: white;
+    top: 0;
+    right: 0px;
+    height: 100%;
+    line-height: 486px;
+    position: absolute;
+}
+
+.comparison {
+    resize: horizontal;
+    opacity: 0;
+    position: relative;
+    top: 50%;
+    left: 0px;
+    margin-right: 0px;
+    width: 45vw;
+    height: 15px;
+    max-width: 70vw;
+    min-width: 0;
+    outline: 0 solid transparent;
+    cursor: move;
+    cursor: all-scroll;
+    transform: scaley(35);
+    transform-origin: center center;
+    animation: delta 2s 1 normal ease-in-out 1s;
+}
+
+@keyframes delta {
+    30% {width: 70vw}
+    60% {width: 20vw}
+    80% {width: 45vw}
+}
